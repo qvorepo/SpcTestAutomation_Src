@@ -1,2 +1,5 @@
-/screenshots
-/videos
+
+/screenshots/**
+/videos/**
+*.mp4
+*.png
