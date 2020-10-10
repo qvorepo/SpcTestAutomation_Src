@@ -1,0 +1,15 @@
+{
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 30000,
+  "pageLoadTimeout": 30000,
+  "retries": {
+    "runMode": 2
+  },
+  "env": {
+    "db": {
+      "host": "10.31.6.77",
+      "database": "C:\\SPC\\Database\\SPC.db"
+    }
+  },
+  "projectId": "kq163p"
+}
