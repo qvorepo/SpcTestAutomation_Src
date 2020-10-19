@@ -9,7 +9,9 @@ describe('Submit Curbside Arrival Message Test', () => {
     const storeNbr=722;
     const endPoint='http://localhost:9101/spc/api/v1/routes/curbside';
     const name='Quang';
-    const spot=12;
+
+   const spot = Cypress._.random(1, 12);
+
     const checkIntime=Cypress.moment().toISOString();
 
   cy.request('POST', endPoint, 
