@@ -9,8 +9,11 @@ describe('Task Command', () => {
      * Therefore, on any given day, the total count of the match string should not exceed 4.
      */
       it('Read directory and search for a matched string in the files test, failed if count greater than 4', () => {
+        const currentDate=Cypress.moment().format('YYYYMMDD').toString();//20201020
+        //Services_Health, Services_Gateway, Services_InstoreApi, Services_PrintManager
+        cy.log('Current date ' +currentDate);
         const dirPath='C:/SPC/logs'
-        const fileNamePrefix='Services_Health20201016';
+        const fileNamePrefix='Services_Health' + currentDate;
         const fileArr=new Array();
         const searchString='103-ServiceChecker-8';
         let regExp = new RegExp(searchString, 'g');
