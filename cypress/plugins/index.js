@@ -11,6 +11,7 @@ module.exports = (on, _config) => {
          readDir: lst,
          readFile: fileContent,
          queryDb: queryTestDb,
+		 copyLogDir: copyDirectory,
          
          //wait: timeout,
     });
@@ -57,6 +58,20 @@ function queryTestDb(query) {
       });//End db.run
 
     });
+}
+
+/**
+ * Copy a directory
+ */
+var copydir = require('copy-dir');
+function copyDirectory()
+{
+	copydir.sync('C:/SPC/logs', 'C:/Logs_Copy/logs', {
+		utimes: true,  // keep add time and modify time
+		mode: true,    // keep file mode
+		cover: true    // cover file when exists, default is true
+	  });
+	  return 'OK'
 }
 
 

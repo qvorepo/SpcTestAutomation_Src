@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import HomePage from '../support/pageObjects/HomePage'
+import HomePage from '../support/pageObjects/HomePage_PageObjects';
 
 describe('Self Tests', () => {
   const endPoint='http://localhost:9101/spc/api/v1/routes/SelfTest?printerName=';

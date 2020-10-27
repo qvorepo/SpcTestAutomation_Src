@@ -3,7 +3,7 @@ import { Given, When, Then, } from 'cypress-cucumber-preprocessor/steps';
 import HomePage from '../../support/pageObjects/HomePage_PageObjects';
 const homePage=new HomePage();
 const routingStateFile='C:/SPC/ClientData/routing_state.json';
-const alertMsg='Routing changed: Off-Peak is now active';
+const alertMsg='Routing changed: Off-Peak is now active';//Should be Off-Peak
 
     Given('I visit Label Routing Admin homepage', () => {
         cy.visit('https://uspc01s3000722:3001/home');
@@ -27,7 +27,8 @@ const alertMsg='Routing changed: Off-Peak is now active';
     });//When
 
     Then('Off-Peak alert message should be displayed', () => {
-        homePage.getAlertSuccessBox().invoke('text').should('contain', alertMsg);
+        //homePage.getAlertSuccessBox().invoke('text').should('contain', alertMsg);
+        homePage.getAlertSuccessBox().invoke('text').should('contain', 'Routing changed: Off-Peak is now active');//Should be Off-Peak
 
     });//Then
 
