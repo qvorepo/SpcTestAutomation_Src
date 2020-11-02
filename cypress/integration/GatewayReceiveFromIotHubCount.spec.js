@@ -5,34 +5,22 @@ describe('Task Command', () => {
      * Add the matched files to an array.
      * Search through each file in the array and look for a match string.
      * Add each count of the match string to a variable.
-     * Each occurence of the match string should be found for every 6 hours.
-     * Therefore, on any given day, the total count of the match string should not exceed 4.
+     * 1246 per day, not certain why.
      */
-      it('Read directory and search for a matched string in the files test, failed if count greater than 4', () => {
-        const currentDate=Cypress.moment().format('MM/DD/YYYY').toString();//20201020
+      it('Read directory and search for a matched string in the files test, failed if not equal 1246 for the whole day.', () => {
+        const currentDate=Cypress.moment().format('YYYYMMDD').toString();//20201020
         //Services_Health, Services_Gateway, Services_InstoreApi, Services_PrintManager, Services_OrderRouter
-        const dateToSearch='20201029';
-        cy.log('Current date ' +currentDate);
+        const dateToSearch=currentDate;
+        //const dateToSearch='20201029';
+        cy.log('Current date ' +Cypress.moment().format('MM/DD/YYYY').toString());
         cy.log('Date to search ' +dateToSearch) 
         const dirPath='C:/SPC/logs'
          //const fileNamePrefix='Services_Health' + dateToSearch;
          //const searchString='"All critical services are healthy and sending a unified heartbeat."';// Client health 103-ServiceChecker-8
-         const searchString='101-IotHubConfigService-6'
+         const searchString='\"Received {@IotHubMessage} from Iot Hub.\"';
          const serviceName='Services_Gateway';
          const fileNamePrefix=serviceName + dateToSearch;
          cy.log("Search string " +searchString)
-
-         
-        // const searchString='101-IotHubClient-15';//Gateway
-
-        // const fileNamePrefix='Services_InstoreApi' + dateToSearch;
-        // const searchString='101-04-HeartbeatExtensions-1';//Instore        
-
-        // const fileNamePrefix='Services_OrderRouter' + dateToSearch;
-        // const searchString='\"108-StatusCodes-2\"';//Order Router       
-
-        //109-PrintManagerCodes-37
-
 
         const fileArr=new Array();
         
@@ -78,7 +66,7 @@ describe('Task Command', () => {
                 {
                   cy.log('index ' + index +', Count of search string \'' + searchString + '\' is ' + countOfSearchString);
   
-                  expect(countOfSearchString).to.be.lessThan(5);
+                  expect(countOfSearchString).to.be.equal(1246);// Not certain why 1246.
                 }
               });
             });  

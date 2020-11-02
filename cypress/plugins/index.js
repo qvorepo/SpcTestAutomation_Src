@@ -4,6 +4,7 @@
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const cucumber=require ('cypress-cucumber-preprocessor').default;
+const findRemoveSync = require('find-remove');
 
 module.exports = (on, _config) => {
     on('task', {
@@ -11,7 +12,8 @@ module.exports = (on, _config) => {
          readDir: lst,
          readFile: fileContent,
          queryDb: queryTestDb,
-		 copyLogDir: copyDirectory,
+          copyLogDir: copyDirectory,
+          purgeOldLogs:purgeOldLogs,
          
          //wait: timeout,
     });
@@ -85,3 +87,15 @@ function copyDirectory()
 //         }, timeout);
 //     });
 // };
+
+/**
+ * Remove old log files older than 14 days.
+ * 1 hr:  3600 seconds
+ */
+
+function purgeOldLogs()
+{
+  var result = findRemoveSync('C:/SPC/logs', {age: {seconds: 1209600}, extensions: '.log'})
+	  return result;
+}
+
