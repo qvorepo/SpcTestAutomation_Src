@@ -8,9 +8,10 @@
     "headTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome --headless",
     "curdsideChannelTestSuite": "npm run test -- --reporter mochawesome  --browser chrome --headed --spec \"cypress/integration/examples/CurbsideChannelTest.\"",
-    "fileSystemSuite": "npm run test -- --reporter mochawesome  --spec \"cypress/integration/TaskCmdCopyDirExample.js\"",
+    "fileSystemSuite": "npm run test -- --reporter mochawesome  --spec \"cypress/integration/TaskCmdCopyLogDir.spec.js\"",
     "routingDashboardTestSuite": "npm run test -- --record --key 3d9b3290-1c50-4f5e-ad10-f8d90b7a1db0 --browser electron --headed --spec \"cypress/integration/CurbsideChannelTest.js,cypress/integration/changeRoutingTemplates.feature,cypress/integration/API_SubmitCurbsideArrivalMessageTest.js,cypress/integration/SwitchCurbsideChannelStateTest.js,cypress/integration/LabelPrintTest.js\"",
-    "GreenKartTest": "npm run test -- --spec \"cypress/integration/GreenKart/*\""
+    "GreenKartTest": "npm run test -- --spec \"cypress/integration/GreenKart/*\"",
+    "cypress:report": "node config.js"
   },
   "author": "QuangVo",
   "license": "ISC",
@@ -18,13 +19,17 @@
     "cypress": "^5.2.0",
     "cypress-cucumber-preprocessor": "^3.0.0",
     "mocha": "^8.1.3",
-    "mochawesome": "^6.1.1",
-    "sqlite3": "^5.0.0"
+    "mochawesome": "^6.2.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0",
+    "sqlite3": "^5.0.0",
+    "yargs": "^16.1.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true
   },
   "dependencies": {
-    "copy-dir": "^1.3.0"
+    "copy-dir": "^1.3.0",
+    "find-remove": "^2.0.3"
   }
 }

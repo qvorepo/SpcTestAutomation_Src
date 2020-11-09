@@ -11,7 +11,7 @@ module.exports = (on, _config) => {
          print: log,
          readDir: lst,
          readFile: fileContent,
-         queryDb: queryTestDb,
+         queryConfigDb: queryConfigDb,
           copyLogDir: copyDirectory,
           purgeOldLogs:purgeOldLogs,
          
@@ -43,23 +43,23 @@ const fileContent = (path) => {
 /**
  * SQLite Database Connection
  */
-const path='C:/Users/Mamga/TestDB/chinook.db'
-function queryTestDb(query) {
-    let db = new sqlite3.Database(path);
-    return new Promise((resolve, reject) => {
-      db.run(query, (error, results) => {
-        if(error) 
-            reject(error); 
+const path='C:/SPC/Database/Configuration.db'
+function queryConfigDb(sql) {
+	let db = new sqlite3.Database(path);
+	return new Promise((resolve, reject) => {
+		db.all(sql, [], (err, rows) => {
+		if(err) 
+			reject(err); 
 
-        else  {
-          db.close();
-          console.log(results)
-          return resolve(results);
-        }//End else
-        
-      });//End db.run
+		else  {
+		  db.close();
+		  console.log(rows)
+		  return resolve(rows);
+		}//End else
+		
+	  });//End db.run
 
-    });
+	});
 }
 
 /**
@@ -89,7 +89,7 @@ function copyDirectory()
 // };
 
 /**
- * Remove old log files older than 14 days.
+ * Remove log files older than 14 days.
  * 1 hr:  3600 seconds
  */
 

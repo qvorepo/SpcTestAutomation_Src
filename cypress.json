@@ -5,6 +5,13 @@
   "retries": {
     "runMode": 2
   },
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "toConsole": true
+  },
   "env": {
     "db": {
       "host": "10.31.6.77",
