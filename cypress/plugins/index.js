@@ -11,9 +11,10 @@ module.exports = (on, _config) => {
          print: log,
          readDir: lst,
          readFile: fileContent,
-         queryConfigDb: queryConfigDb,
-          copyLogDir: copyDirectory,
-          purgeOldLogs:purgeOldLogs,
+		 queryConfigDb: queryConfigDb,
+		 querySpcDb: querySpcDb,
+         copyLogDir: copyDirectory,
+         purgeOldLogs:purgeOldLogs,
          
          //wait: timeout,
     });
@@ -41,11 +42,33 @@ const fileContent = (path) => {
 };
 
 /**
- * SQLite Database Connection
+ * SQLite Database Connection to Configuration DB.
  */
 const path='C:/SPC/Database/Configuration.db'
 function queryConfigDb(sql) {
 	let db = new sqlite3.Database(path);
+	return new Promise((resolve, reject) => {
+		db.all(sql, [], (err, rows) => {
+		if(err) 
+			reject(err); 
+
+		else  {
+		  db.close();
+		  console.log(rows)
+		  return resolve(rows);
+		}//End else
+		
+	  });//End db.run
+
+	});
+}
+
+/**
+ * SQLite Database Connection to SPC DB.
+ */
+const spcDbPath='C:/SPC/Database/SPC.db'
+function querySpcDb(sql) {
+	let db = new sqlite3.Database(spcDbPath);
 	return new Promise((resolve, reject) => {
 		db.all(sql, [], (err, rows) => {
 		if(err) 

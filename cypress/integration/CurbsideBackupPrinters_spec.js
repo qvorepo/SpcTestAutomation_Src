@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 /**
  * Query the Configuration.db database
- * Verify the Curbside primary printer is Bar2 and backup printers is Bar1 then Warming1
+ * Verify the Curbside primary printer is Bar2 and backup printers are Bar1 then Warming1
  */
 describe('Curbside Backup Printer Validation', () => {
     it('Curbside Backup Printer Test', () => {
