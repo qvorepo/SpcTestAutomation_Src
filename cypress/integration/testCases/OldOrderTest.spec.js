@@ -25,11 +25,11 @@ describe('Old Order Validation', () => {
        
         for(var i=0; i<rows.length; i++)
         {
-          if((Cypress.moment().utc(rows[i].DateCreated) - oldDate)>hoursPast)
+          if((Cypress.moment().utc(rows[i].DateCreated) <oldDate))
           {
+            
             oldOrder=true;
             cy.log('Old Order ' + rows[i].DateCreated + ", DbId "+ rows[i].DbId);
-            
           }
           expect(oldOrder).to.be.false;
         }
@@ -41,14 +41,12 @@ describe('Old Order Validation', () => {
          
           for(var i=0; i<itemRows.length; i++)
           {
-            if((Cypress.moment().utc(itemRows[i].DateUpdated) - oldDate)>hoursPast)
+            if((Cypress.moment().utc(itemRows[i].DateUpdated) < oldDate))
             {
               oldItem=true;
               cy.log('Old Item ' + itemRows[i].DateUpdated + ", DbId "+ itemRows[i].DbId);
             }
-
             expect(oldItem).to.be.false;
-            //cy.log(`${dbidLabel}` + rows[i].DbId + `${custNameLabel}` + rows[i].CustomerName + `${dateUpdatedLabel}` + rows[i].DateUpdated)
           }
           
           });//Query OrderItems table
@@ -58,14 +56,12 @@ describe('Old Order Validation', () => {
            
             for(var i=0; i<modifierRows.length; i++)
             {
-              if((Cypress.moment().utc(modifierRows[i].DateUpdated) - oldDate)>hoursPast)
+              if((Cypress.moment().utc(modifierRows[i].DateUpdated) < oldDate))
               {
                 oldModifier=true;
                 cy.log('Old Modifier ' + modifierRows[i].DateUpdated + ", DbId "+ modifierRows[i].DbId);
               }
               expect(oldModifier).to.be.false;
-              //cy.log(`${dbidLabel}` + rows[i].DbId + `${custNameLabel}` + rows[i].CustomerName + `${dateUpdatedLabel}` + rows[i].DateUpdated)
-
             }
             
             });//Query Modifier table

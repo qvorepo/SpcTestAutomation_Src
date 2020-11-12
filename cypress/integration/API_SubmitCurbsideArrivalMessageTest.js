@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 import HomePage from '../support/pageObjects/HomePage_PageObjects';
 
-describe('Submit Curbside Arrival Message Test', () => {
-  it('Submit Curbside Arrival Message Test', () => {
+describe('Curbside Arrival Message Submision Validation', () => {
+  it('Curbside Arrival Message Submision To Order Router Service End Point', () => {
 
     const homePage=new HomePage();
 
