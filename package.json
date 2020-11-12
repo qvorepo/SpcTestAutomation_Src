@@ -10,7 +10,7 @@
     "curdsideChannelTestSuite": "npm run test -- --reporter mochawesome  --browser chrome --headed --spec \"cypress/integration/examples/CurbsideChannelTest.\"",
     "fileSystemSuite": "npm run test -- --reporter mochawesome  --spec \"cypress/integration/TaskCmdCopyLogDir.spec.js\"",
     "routingDashboardTestSuite": "npm run test -- --record --key 3d9b3290-1c50-4f5e-ad10-f8d90b7a1db0 --browser electron --headed --spec \"cypress/integration/CurbsideChannelTest.js,cypress/integration/changeRoutingTemplates.feature,cypress/integration/API_SubmitCurbsideArrivalMessageTest.js,cypress/integration/SwitchCurbsideChannelStateTest.js,cypress/integration/LabelPrintTest.js\"",
-    "GreenKartTest": "npm run test -- --spec \"cypress/integration/GreenKart/*\"",
+    "GreenKartTest": "npm run test -- --spec \"cypress/integration/testCases/*\"",
     "cypress:report": "node config.js"
   },
   "author": "QuangVo",

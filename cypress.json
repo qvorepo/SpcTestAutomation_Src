@@ -12,11 +12,13 @@
     "json": true,
     "toConsole": true
   },
+  
   "env": {
-    "db": {
-      "host": "10.31.6.77",
-      "database": "C:\\SPC\\Database\\SPC.db"
-    }
+    "hostName": "https://uspc01S3000722",
+    "ipAddr": "10.31.6.77",
+    "spcDb": "C:\\SPC\\Database\\SPC.db",
+    "configDb": "C:\\SPC\\Database\\Configuration.db",
+    "locId": 722
   },
   "projectId": "kq163p"
 }

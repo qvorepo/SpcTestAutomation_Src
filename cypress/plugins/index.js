@@ -44,9 +44,10 @@ const fileContent = (path) => {
 /**
  * SQLite Database Connection to Configuration DB.
  */
-const path='C:/SPC/Database/Configuration.db'
+const configDBPath='C:/SPC/Database/Configuration.db'
+//const configDBPath=Cypress.env('configDb');
 function queryConfigDb(sql) {
-	let db = new sqlite3.Database(path);
+	let db = new sqlite3.Database(configDBPath);
 	return new Promise((resolve, reject) => {
 		db.all(sql, [], (err, rows) => {
 		if(err) 
