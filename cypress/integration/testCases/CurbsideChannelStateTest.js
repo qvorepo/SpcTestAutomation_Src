@@ -2,8 +2,8 @@
 
 import HomePage from '../../support/pageObjects/HomePage_PageObjects';
 
-describe('Switch Curbside Channel State Test', () => {
-  it('Switch Curbside Channel State Test', () => {
+describe('Curbside Channel State Change Test', () => {
+  it('Curbside Channel State Change Test', () => {
 
     const homePage=new HomePage();
 

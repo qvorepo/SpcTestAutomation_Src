@@ -19,15 +19,6 @@ Then('Lunch alert message should be displayed', () => {
 
 });//Then
 
-Then('Lunch state should be saved to RoutingState JSON file', () => {
-  cy.readFile(routingStateFile).then((json) => {
-    
-  expect(json.CurrentTemplate).to.equal('lunch');//Should be lunch
-  cy.log(routingStateFile + " has the currentTemplate " + json.CurrentTemplate);
 
-});//End read file
-
-
-});//Then
    
 		

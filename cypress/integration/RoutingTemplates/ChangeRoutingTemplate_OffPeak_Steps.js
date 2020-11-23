@@ -8,8 +8,6 @@ const alertMsg='Routing changed: Off-Peak is now active';//Should be Off-Peak
     Given('I visit Label Routing Admin homepage', () => {
         cy.visit('https://uspc01s3000722:3001/home');
 
-    
- 
     });//Given
 
     Then('Page Title is correct', () => {
@@ -32,15 +30,6 @@ const alertMsg='Routing changed: Off-Peak is now active';//Should be Off-Peak
 
     });//Then
 
-    Then('Off-Peak state should be saved to RoutingState JSON file', () => {
-      cy.readFile(routingStateFile).then((json) => {
-          
-        expect(json.CurrentTemplate).to.equal('off-peak');//Should be off-peak
-        cy.log(routingStateFile+ " has the currentTemplate " + json.CurrentTemplate);
-      });//End read file
-
-      
-    });//Then
 
 
 

@@ -11,14 +11,14 @@ describe('Task Command', () => {
       it('Read directory and search for a matched string in the files test, failed if count greater than 4', () => {
         const currentDate=Cypress.moment().format('MM/DD/YYYY').toString();//20201020
         //Services_Health, Services_Gateway, Services_InstoreApi, Services_PrintManager, Services_OrderRouter
-        const dateToSearch='20201029';
+        const dateToSearch='20201105';
         cy.log('Current date ' +currentDate);
         cy.log('Date to search ' +dateToSearch) 
         const dirPath='C:/SPC/logs'
          //const fileNamePrefix='Services_Health' + dateToSearch;
          //const searchString='"All critical services are healthy and sending a unified heartbeat."';// Client health 103-ServiceChecker-8
-         const searchString='101-IotHubConfigService-6'
-         const serviceName='Services_Gateway';
+         const searchString='108-ConfigCodes-4'
+         const serviceName='Services_OrderRouter';
          const fileNamePrefix=serviceName + dateToSearch;
          cy.log("Search string " +searchString)
 
