@@ -63,12 +63,10 @@ class HomePage
         return cy.get('a.test-print');
     }
 
-    getAllPrinters()
+    getTestPrintAll()
     {
         return cy.get('.btn-primary').contains('Test Print All');
     }
-
-
 
 }
 export default HomePage;

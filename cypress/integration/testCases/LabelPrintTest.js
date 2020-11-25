@@ -32,8 +32,8 @@ describe('Label Printing Capability Test', () => {
 		  
           cy.wait(2000);
           //Test print to all printers.
-          homePage.getAllPrinters().click();
-          cy.wait(1000) ;
+          homePage.getTestPrintAll().click();
+          cy.wait(3000) ;
           
           homePage.getAlertSuccessBox().invoke('text').then((text3) => {
             expect(text3).to.contain('Now test printing to all labelers');
