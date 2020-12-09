@@ -26,7 +26,7 @@ describe('Label Printing Capability Test', () => {
           cy.wait(1000) ;
           
           homePage.getAlertSuccessBox().invoke('text').then((text2) => {
-            expect(text2).to.contain('Now test printing to Warming Printer 2');
+            expect(text2).to.contain('Now test printing to Ticket Printer');//Mobile Ticket Printer
           
           })
 		  
